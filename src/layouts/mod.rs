@@ -36,6 +36,9 @@ pub use self::no105::No105Key;
 mod fi_se105;
 pub use self::fi_se105::FiSe105Key;
 
+mod ch_fr105;
+pub use self::ch_fr105::ChFr105Key;
+
 /// A enum of all the supported keyboard layouts.
 pub enum AnyLayout {
     DVP104Key(DVP104Key),
@@ -48,6 +51,7 @@ pub enum AnyLayout {
     De105Key(De105Key),
     No105Key(No105Key),
     FiSe105Key(FiSe105Key),
+    ChFr105Key(ChFr105Key),
 }
 
 impl super::KeyboardLayout for AnyLayout {
@@ -68,6 +72,7 @@ impl super::KeyboardLayout for AnyLayout {
             AnyLayout::De105Key(inner) => inner.map_keycode(keycode, modifiers, handle_ctrl),
             AnyLayout::No105Key(inner) => inner.map_keycode(keycode, modifiers, handle_ctrl),
             AnyLayout::FiSe105Key(inner) => inner.map_keycode(keycode, modifiers, handle_ctrl),
+            AnyLayout::ChFr105Key(inner) => inner.map_keycode(keycode, modifiers, handle_ctrl),
         }
     }
 
@@ -83,6 +88,7 @@ impl super::KeyboardLayout for AnyLayout {
             AnyLayout::De105Key(inner) => inner.get_physical(),
             AnyLayout::No105Key(inner) => inner.get_physical(),
             AnyLayout::FiSe105Key(inner) => inner.get_physical(),
+            AnyLayout::ChFr105Key(inner) => inner.get_physical(),
         }
     }
 }
@@ -105,6 +111,7 @@ impl super::KeyboardLayout for &AnyLayout {
             AnyLayout::De105Key(inner) => inner.map_keycode(keycode, modifiers, handle_ctrl),
             AnyLayout::No105Key(inner) => inner.map_keycode(keycode, modifiers, handle_ctrl),
             AnyLayout::FiSe105Key(inner) => inner.map_keycode(keycode, modifiers, handle_ctrl),
+            AnyLayout::ChFr105Key(inner) => inner.map_keycode(keycode, modifiers, handle_ctrl),
         }
     }
 
@@ -120,6 +127,7 @@ impl super::KeyboardLayout for &AnyLayout {
             AnyLayout::De105Key(inner) => inner.get_physical(),
             AnyLayout::No105Key(inner) => inner.get_physical(),
             AnyLayout::FiSe105Key(inner) => inner.get_physical(),
+            AnyLayout::ChFr105Key(inner) => inner.get_physical(),
         }
     }
 }
