@@ -1,13 +1,13 @@
-//! Swiss (french) keyboard support
+//! French/Switzerland keyboard support
 
 use crate::{
     DecodedKey, HandleControl, KeyCode, KeyboardLayout, Modifiers, PhysicalKeyboard,
 };
 
-/// A standard Swiss (french) 102-key (or 105-key including Windows keys) keyboard.
-pub struct ChFr105Key;
+/// A standard  French/Switzerland 102-key (or 105-key including Windows keys) keyboard.
+pub struct FrCh105Key;
 
-impl KeyboardLayout for ChFr105Key {
+impl KeyboardLayout for FrCh105Key {
     #[rustfmt::skip]
     fn map_keycode(
         &self,
